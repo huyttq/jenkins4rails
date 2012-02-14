@@ -42,6 +42,7 @@ Getting Started
 		`$ source ~/.bash_profile` 
 		`$ type -t rvm # should return "function"`
 		`$ rvm requirements # check and install all missing requirements/lib`
+		`$ sudo apt-get install build-essential openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev autoconf libc6-dev ncurses-dev automake libtool bison subversion libcurl4-openssl-dev`
 		`$ rvm install ree # 1.9.2, head or whatever`  
 		`$ rvm use --default ree@global`  
 		`$ gem install bundler`  
