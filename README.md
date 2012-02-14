@@ -38,8 +38,10 @@ Getting Started
 		`$ cd`
 
 	* Install RVM:  
-		`$ bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)`  
+		`$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)`
+		`$ source ~/.bash_profile
 		`$ type -t rvm # should return "function"`  
+		`$ rvm requirements # check and install all missing requirements/lib 
 		`$ rvm install ree # 1.9.2, head or whatever`  
 		`$ rvm use --default ree@global`  
 		`$ gem install bundler`  
