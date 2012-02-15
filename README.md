@@ -32,6 +32,7 @@ Getting Started
 
 * Configure jenkins environment: 
 	* Install javascript runtime if not exist
+
  		`$ sudo apt-get install nodejs`
 
 	* Change to jenkins user  
@@ -70,7 +71,8 @@ Getting Started
 	* go to [http://localhost:8080][localhost]  
 		* go to Manage Jenkins -> Manage Plugins -> Available ([http://localhost:8080/pluginManager/available](http://localhost:8080/pluginManager/available "Available Plugins"))
 		* Install [Jenkins GIT Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
-		* Install [Github Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin)		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
+		* Install [Github Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin)
+ 		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
 		* Install vnc4server with you admin account
  			<pre>
 			sudo apt-get install vnc4server
@@ -87,7 +89,7 @@ Getting Started
 			* In the next page under "Source Code Management" choose GIT
 			* Enter the URL of your github project (i.e. git://github.com/gmonfort/jenkins4rails.git)
    			* Check "Run Xvnc during build" if you wish to run UI test
-			* Choose a trigger under "Build Triggers" (i.e. periodically, * 1 * * * stands for daily)
+			* Choose a trigger under "Build Triggers" (i.e. "Build when a change is pushed to GitHub")
 			* Under "Build" select "Execute Shell" and put the following:  
 				<pre>
 				#!/bin/bash -x  
