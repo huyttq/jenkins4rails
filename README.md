@@ -68,21 +68,31 @@ Getting Started
 	* go to [http://localhost:8080][localhost]  
 		* go to Manage Jenkins -> Manage Plugins -> Available ([http://localhost:8080/pluginManager/available](http://localhost:8080/pluginManager/available "Available Plugins"))
 		* Install [Jenkins GIT Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
+		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
+                * Install vnc4server with you admin account:
+                	`$ sudo apt-get install vnc4server`
+			`$ sudo -Hiu jenkins`
+			`$ vncserver`
+			Enter a password, and verify it
+			`$ vncserver -kill :1`
+			For more detail: http://www.rapaul.com/2011/06/05/zero-to-headless-browser-tests-jenkins/#going-headless
 		* Create a new jenkins job:  
 			* In the jenkins home click on "New Job"
 			* Give it a name and choose "Build a free-style software project"
 			* In the next page under "Source Code Management" choose GIT
 			* Enter the URL of your github project (i.e. git://github.com/gmonfort/jenkins4rails.git)
+   			* Check "Run Xvnc during build" if you wish to run UI test
 			* Choose a trigger under "Build Triggers" (i.e. periodically, * 1 * * * stands for daily)
 			* Under "Build" select "Execute Shell" and put the following:  
 				<pre>
 				#!/bin/bash -x  
-				source ~/.bashrc  
+				source ~/.bashrc
+				cd .
+				rm -rf jenkins && mkdir jenkins
 				rvm use 1.9.2@name-of-your-project-gemset  
 				bundle install  
-				rake db:migrate  
-				rake db:test:load  
-				rake spec
+				rake db:migrate RAILS_ENV=test  
+				SPEC_OPTS="--format html" rake spec > jenkins/rspec.html
 				</pre>
 
 			* Save your job and schedule a new build (click on "Build now")
