@@ -60,7 +60,7 @@ Getting Started
 	
 	* Copy .bashrc file to jenkins home:  
 		`$ mkdir tmp && cd tmp`  
-		`$ git clone git://github.com/gmonfort/jenkins4rails.git`  
+		`$ git clone git@github.com:huyttq/jenkins4rails.git`  
 		`$ cp jenkins4rails/.bashrc .`  
 
 * Configure jenkins
@@ -69,12 +69,15 @@ Getting Started
 		* go to Manage Jenkins -> Manage Plugins -> Available ([http://localhost:8080/pluginManager/available](http://localhost:8080/pluginManager/available "Available Plugins"))
 		* Install [Jenkins GIT Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
 		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
-                * Install vnc4server with you admin account:
-                	`$ sudo apt-get install vnc4server`
-			`$ sudo -Hiu jenkins`
-			`$ vncserver`
+		* Install vnc4server with you admin account
+ 			<pre>
+			sudo apt-get install vnc4server
+			sudo -Hiu jenkins
+			vncserver
 			Enter a password, and verify it
-			`$ vncserver -kill :1`
+			vncserver -kill :1
+			</pre>
+
 			For more detail: http://www.rapaul.com/2011/06/05/zero-to-headless-browser-tests-jenkins/#going-headless
 		* Create a new jenkins job:  
 			* In the jenkins home click on "New Job"
