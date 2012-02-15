@@ -30,7 +30,9 @@ Getting Started
 		`$ sudo apt-get update`  
 		`$ sudo apt-get install jenkins`
 
-* Configure jenkins environment:  
+* Configure jenkins environment: 
+	* Install javascript runtime if not exist
+ 		`$ sudo apt-get install nodejs`
 
 	* Change to jenkins user  
 		`$ sudo -Hiu jenkins`  
@@ -51,12 +53,12 @@ Getting Started
 		`$ gem install bundler`  
 		`$ rvm gemset create name-of-your-project-gemset`  
 
-	* Create the jenkins keys to access github  
-		`$ ssh-keygen -t dsa -C "Jenkins key"`  
+	* Create the jenkins keys using passwordless to access github  
+		`$ ssh-keygen -t rsa -C "Jenkins key"`
 		`$ git config --global user.email "jenkins@your-domain.com"`  
 		`$ git config --global user.name "jenkins"`  
 
-	* Go to github and add the new key to your github project
+	* Go to github and add the new public key to your github project
 	
 	* Copy .bashrc file to jenkins home:  
 		`$ mkdir tmp && cd tmp`  
@@ -68,7 +70,7 @@ Getting Started
 	* go to [http://localhost:8080][localhost]  
 		* go to Manage Jenkins -> Manage Plugins -> Available ([http://localhost:8080/pluginManager/available](http://localhost:8080/pluginManager/available "Available Plugins"))
 		* Install [Jenkins GIT Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin)
-		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
+		* Install [Github Plugin](http://wiki.jenkins-ci.org/display/JENKINS/Github+Plugin)		* Install [Hudson Xvnc plugin] - this will run UI testing (Capybara & Cucumber)
 		* Install vnc4server with you admin account
  			<pre>
 			sudo apt-get install vnc4server
