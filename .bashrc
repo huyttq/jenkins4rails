@@ -1,11 +1,1 @@
-if [[ -n "$PS1" ]]; then
-	PS1='\[\033[01;30m\][ \[\033[01;31m\]\u \[\033[01;30m\]]\[\033[01;34m\]\w\[\033[00m\]\$ '
-	eval "`dircolors -b`"
-	if [ -f ~/.bash_aliases ]; then
-	    . ~/.bash_aliases
-	fi
-fi
-
-xhost +LOCAL:
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[ -s "/var/lib/jenkins/.rvm/scripts/rvm" ] && source "/var/lib/jenkins/.rvm/scripts/rvm" # This loads RVM into a shell session.
